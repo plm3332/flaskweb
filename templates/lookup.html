@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Renewal</title>
+    <meta name="description" content="Gallery Renewal">
+    <meta name="keywords" content="gallery, html, css, js">
+    <meta name="author" content="plm3332">
+
+    <link rel="icon" href="../static/img/logo.ico">
+    <link rel="apple-touch-icon" href="../static/img/logo.ico">
+    <link rel="short icon" type="image/x-icon" href="../static/img/logo.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/c03494b851.js" crossorigin="anonymous"></script>
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <div class="search-container">
+                <a href="http://localhost:8081" class="logo-container"><img src="../static/img/logo.png" alt="DC logo" class="logo-img"></a>
+                <div class="search-bar">
+                    <form action="http://localhost:8081/board/search" method="GET">
+                        <input type="text" name="search_name" placeholder="갤러리 검색..." class="search">
+                        <button type="submit" class="search-button"><a class="search-icon"></a></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="head-container">
+        <div class="head-gall-container">
+            <div class="gallery-container">
+                <div class="gall-1">갤러리</div>
+                <div class="gall-1">마이너갤</div>
+                <div class="gall-1">미니갤</div>
+            </div>
+            <div class="news-container">
+                <div class="gall-1">갤로그</div>
+                <div class="gall-1">뉴스</div>
+                <div class="gall-1">스포츠</div>
+                <div class="gall-1">게임</div>
+                <div class="gall-1">위키</div>
+            </div>
+        </div>
+        <div class="head-login-container">
+            {% if not userinfo %}
+            <form action="http://localhost:8081/userlogin" method="POST">
+                ID: <input type="text" name="user_id">
+                PW: <input type="password" name="user_pw">
+                <button type="submit" class="login-button"><i class="fas fa-sign-in-alt fa-fw"></i>로그인</button>
+            </form>
+            <div class="gall-2">
+                <a href="http://localhost:8081/signupa" style="color:white"><i class="fas fa-user fa-fw"></i>회원가입</a>
+            </div>
+            {% else %}
+            <div class="gall-2">
+                {{ userinfo }}님, 환영합니다!
+            </div>
+            <div class="gall-2">
+                <a href="http://localhost:8081/logout" style="color:white"><i class="fas fa-user fa-fw"></i>로그아웃</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <section>
+        <div class="inner">
+            <div class="gall-write-form">
+                <div class="gall-lookup-container">
+                    <div class="gall-title">{{ data.title }}</div>
+                    <div class="gall-lookup-info">
+                        <div class="gall-lookup-writer"> {{ data.name }} </div>
+                        <div class="gall-lookup-hit"> {{ data.hit }} 조회수</div>
+                        <div class="gall-lookup-date"> {{ data.datetime }} </div>
+                    </div>
+                </div>
+                <div class="gall-form-data">
+                    <div class="gall-form-data-content">{{ data.content }}</div>
+                    <button class="signup-button" onclick="location.href='http://localhost:8081/gallery/{{gname}}'">뒤로</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="inner">
+            <div class="footer-message">안녕하세요</div>
+            <div class="footer-contact">컨택: plm3332@gmail.com</div>
+            <div class="footer-copyright">Copyright 2021 © All rights reserved.</div>
+        </div>
+    </footer>
+    <a id="backtotop"></a>
+    <script src="../static/js/main.js"></script>
+</body>
+</html>

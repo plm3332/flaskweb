@@ -1,0 +1,498 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    color: rgb(103, 15, 138);
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
+.inner {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 1200px) {
+    .inner {
+        max-width: 1200px;
+    }
+}
+
+header {
+    width: 100%;
+    height: 200px;
+}
+
+.search-container {
+    width: 100%;
+    height: 150px;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-container {
+    width: 30%;
+    text-align: right;
+}
+
+.search-bar {
+    width: 70%;
+    text-align: left;
+    padding: 0 0 0 5rem;
+}
+
+.logo-img {
+    width: 150px;
+    height: 120px;
+}
+
+.search {
+    width: 600px;
+    height: 70px;
+    border: 10px solid rgb(103, 15, 138);
+}
+
+.search-button {
+    background: none;
+    padding: 0px;
+    border: none;
+}
+
+.search-button:hover {
+    cursor: pointer;
+}
+
+.search-icon {
+    padding: 0.5rem;
+}
+
+.search-icon::after {
+    content: "\f002";
+    font-family: FontAwesome;
+    font-size: 2rem;
+    color: rgb(103, 15, 138);
+}
+
+.search-result {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.head-container {
+    width: 100%;
+    height: 70px;
+    color: #fff;
+    font-size: 1.2rem;
+    background-color: rgb(103, 15, 138);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15rem 0 15rem;
+}
+
+.head-gall-container {
+    display: flex;
+    justify-content: left;
+}
+
+@media screen and (max-width: 1100px) {
+    .search-icon {
+        display: none;
+    }
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: left;
+    border-right: 3px solid rgb(18, 2, 24);
+    padding-right: 2rem;
+}
+
+.news-container {
+    display: flex;
+    justify-content: left;
+    padding-left: 2rem;
+}
+
+.head-login-container {
+    display: flex;
+    justify-content: right;
+}
+
+input {
+    border: 2px solid skyblue;
+    border-radius: 5px;
+}
+
+.login-button {
+    background: inherit;
+    outline: 0;
+    border: 0;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.gall-1 {
+    padding: 0 1rem;
+}
+
+.gall-2 {
+    padding: 0 0.5rem;
+    margin: 0 1rem;
+}
+
+section {
+    width: 100%;
+}
+
+.gall-container {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.gall-title-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 1rem 0;
+    margin-top: 3rem;
+    border-bottom: 4px solid rgb(103, 15, 138);
+}
+
+.gall-title-container2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 1rem 0;
+    margin-top: 3rem;
+    border-bottom: 4px solid rgb(103, 15, 138);
+}
+
+.gall-title {
+    font-size: 1.5rem;
+}
+
+.arrow-container {
+    display: flex;
+}
+
+.slide-prev {
+    font-size: 2rem;
+    color: #cfd8dc;
+    cursor: pointer;
+}
+
+.slide-next {
+    font-size: 2rem;
+    color: rgb(103, 15, 138);
+    cursor: pointer;
+}
+
+.slide-next-hover:hover {
+    transition: transform 0.5s;
+    transform: translateX(2px);
+}
+
+.slide-prev-hover:hover {
+    transition: transform 0.5s;
+    transform: translateX(-2px);
+}
+
+.gall-list {
+    display: flex;
+    list-style: none;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.gall-card {
+    max-width: 240px;
+    box-shadow: 10px 10px 10px -5px rgba(25, 42, 70, .2);
+    border-radius: 8px;
+    margin: 0 10px;
+    transition: 0.4s;
+    flex-shrink: 0;
+}
+
+.gall-card:hover {
+    box-shadow: 10px 10px 10px 0px rgba(25, 42, 70, .2);
+    transform: translate(0, -5px);
+}
+
+.gall-img {
+    max-width: 240px;
+    height: 160px;
+    border-radius: 8px 8px 0 0;
+}
+
+.gall-card-title {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 1.5rem;
+}
+
+a {
+    all: unset;
+}
+
+a:link {
+    text-decoration: none;
+    color: rgb(103, 15, 138);
+}
+
+a:visited {
+    text-decoration: none;
+    color: rgb(103, 15, 138);
+}
+
+a:active {
+    text-decoration: none;
+    color: rgb(103, 15, 138);
+}
+
+a:hover {
+    text-decoration: none;
+    color: #e4e4e4;
+    cursor: pointer;
+}
+
+footer {
+    border-top: 1px solid #e4e4e4;
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    margin: 1rem 0;
+}
+
+.footer-message {
+    font-weight: bold;
+    color: #545e6f;
+    margin: 0.3rem 0.5rem;
+}
+
+.footer-contact {
+    color: #545e6f;
+    margin: 0 0.5rem;
+}
+
+.footer-copyright {
+    color: #545e6f;
+    margin: 1rem 0.5rem;
+}
+
+.signup-form {
+    margin-top: 2rem;
+}
+
+.signup-form-data {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form-data-id {
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.signup-form-data-pw {
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.signup-button {
+    border: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: 1rem;
+    margin-left: -100px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    color: rgb(103, 15, 138);
+    font-size: 1.5rem;
+}
+
+.signup-button:hover {
+    color: #ffffff;
+    background-color: rgb(103, 15, 138);
+}
+
+.news-card-title {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+}
+
+.news-title {
+    font-weight: bold;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.5rem;
+}
+
+.news-detail {
+    font-size: 0.9rem;
+    color: #545e6f;
+    line-height: 3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gall-table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    line-height: 2rem;
+}
+
+.gall-table thead th {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    vertical-align: top;
+    color: #369;
+    border-bottom: 3px solid #036;
+}
+
+.gall-table tbody{
+    line-height: 50px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+
+.gall-table-title {
+    width: 650px;
+}
+
+.gall-write-form {
+    margin-top: 2rem;
+}
+
+.gall-form-data {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.gall-form-data-title {
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.gall-form-data-content {
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.gall-title-input {
+    margin-left: 1rem;
+    width: 80%;
+}
+
+.gall-content-input {
+    margin-top: 1rem;
+    width: 100%;
+    height: 200px;
+    font-size: 1.2rem;
+}
+
+.gall-lookup-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 1rem 0;
+    margin-top: 3rem;
+    border-bottom: 4px solid rgb(103, 15, 138);
+}
+
+.gall-lookup-info {
+    display: flex;
+    color: rgb(114, 139, 163);
+}
+
+.gall-lookup-writer {
+    margin-right: 1rem;
+}
+
+.gall-lookup-hit {
+    margin-right: 1rem;
+}
+
+.hit-card {
+    width: 240px;
+    height: 200px;
+    box-shadow: 10px 10px 10px -5px rgba(25, 42, 70, .2);
+    border-radius: 8px;
+    margin: 0 10px;
+    transition: 0.4s;
+    flex-shrink: 0;
+}
+
+.hit-card-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hit-detail {
+    margin-top: 6rem;
+}
+
+#backtotop {
+    background-color: rgb(47, 48, 89);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition-property: background-color, opacity, visibility;
+    transition-duration: 0.3s, 0.5s, 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+}
+
+#backtotop::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-size: 1.5rem;
+    line-height: 40px;
+    color: #fff;
+}
+
+#backtotop.show:hover {
+    cursor: pointer;
+    background-color: #2186c4;
+}
+
+#backtotop.show {
+    opacity: 1;
+    visibility: visible;
+    background-color: rgb(47, 48, 49);
+}

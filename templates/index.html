@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Renewal</title>
+    <meta name="description" content="Gallery Renewal">
+    <meta name="keywords" content="gallery, html, css, js">
+    <meta name="author" content="plm3332">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Test">
+    <meta property="og:description" content="HTML, CSS, JS Test">
+    <meta property="og:image" content="../static/img/logo.ico">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="Test">
+
+    <link rel="icon" href="../static/img/logo.ico">
+    <link rel="apple-touch-icon" href="../static/img/logo.ico">
+    <link rel="short icon" type="image/x-icon" href="../static/img/logo.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/c03494b851.js" crossorigin="anonymous"></script>
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css?after">
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <div class="search-container">
+                <a href="http://localhost:8081" class="logo-container"><img src="../static/img/logo.png" alt="DC logo" class="logo-img"></a>
+                <div class="search-bar">
+                    <form action="http://localhost:8081/board/search" method="GET">
+                        <input type="text" name="search_name" placeholder="갤러리 검색..." class="search">
+                        <button type="submit" class="search-button"><a class="search-icon"></a></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="head-container">
+        <div class="head-gall-container">
+            <div class="gallery-container">
+                <div class="gall-1">갤러리</div>
+                <div class="gall-1">마이너갤</div>
+                <div class="gall-1">미니갤</div>
+            </div>
+            <div class="news-container">
+                <div class="gall-1">갤로그</div>
+                <div class="gall-1">뉴스</div>
+                <div class="gall-1">스포츠</div>
+                <div class="gall-1">게임</div>
+                <div class="gall-1">위키</div>
+            </div>
+        </div>
+        <div class="head-login-container">
+            {% if not userinfo %}
+            <form action="http://localhost:8081/userlogin" method="POST">
+                ID: <input type="text" name="user_id">
+                PW: <input type="password" name="user_pw">
+                <button type="submit" class="login-button"><i class="fas fa-sign-in-alt fa-fw"></i>로그인</button>
+            </form>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <script type="text/javascript">alert("{{messages[0]}}")</script>
+            {% endif %}
+            {% endwith %}
+            <div class="gall-2">
+                <a href="http://localhost:8081/signupa" style="color:white"><i class="fas fa-user fa-fw"></i>회원가입</a>
+            </div>
+            {% else %}
+            <div class="gall-2">
+                {{ userinfo }}님, 환영합니다!
+            </div>
+            <div class="gall-2">
+                <a href="http://localhost:8081/logout" style="color:white"><i class="fas fa-user fa-fw"></i>로그아웃</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- 갤러리 목록 -->
+    <section>
+        <div class="inner">
+            <div class="gall-container">
+                <div class="gall-title-container">
+                    <div class="gall-title">갤러리 목록</div>
+                    <div class="arrow-container">
+                        <i class="slide-prev fas fa-chevron-circle-left"></i>
+                        <i class="slide-next fas fa-chevron-circle-right"></i>
+                    </div>
+                </div>
+                {% if data %}
+                <ul class="gall-list" data-position="0">
+                    {% for document in data %}
+                    <li class="gall-card">
+                        <img src="../static/img/{{ document.src }}" alt="{{ document.name }}" class="gall-img">
+                        <div class="gall-card-title">
+                            <a class="card-title" href="{{ document.href }}">{{ document.krname }}</a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <!-- 뉴스 -->
+    <section>
+        <div class="inner">
+            <div class="gall-container">
+                <div class="gall-title-container">
+                    <div class="gall-title">뉴스</div>
+                    <div class="arrow-container">
+                        <i class="slide-prev fas fa-chevron-circle-left"></i>
+                        <i class="slide-next fas fa-chevron-circle-right"></i>
+                    </div>
+                </div>
+                <ul class="gall-list" data-position="0">
+                    <li class="gall-card">
+                        <img src="../static/img/dodgers.jpg" alt="Dodgers Win WorldSeries" class="gall-img">
+                        <div class="news-card-title">
+                            <div class="news-title">LA 다저스 32년만에 월드시리즈 우승</a>
+                            <div class="news-detail">미 프로야구 메이저리그(MLB) LA 다저스가 2020시즌 월드시리즈에서 우승했다. 다저스는 28일 텍사스주 알링턴 글로브라이프필드(중립구장)에서 열린 월드시리즈 6차전에서 탬파베이 레이스에 3대1 승리를 거둬 시리즈 전적 4대2로 우승을 확정 지었다.</div>
+                        </div>
+                    </li>
+                    <li class="gall-card">
+                        <img src="../static/img/bauer.jpeg" alt="Trevor Bauer" class="gall-img">
+                        <div class="news-card-title">
+                            <div class="news-title">바우어가 다저스를 택한 이유 "우승할 수 있는 팀 원했다"</a>
+                            <div class="news-detail">'FA 최대어' 트레버 바우어가 LA 다저스 유니폼을 입었다. 그는 "우승을 하기 위해 다저스를 택했다"고 했다.
+
+                                다저스와 바우어는 지난 6일(이하 한국시각) 3년 총액 1억200달러 계약에 합의했다. 2021시즌 연봉 4000만달러, 2022시즌 연봉 4500만달러의 조건이다. 바우어는 역대 단일 시즌 최고 연봉 기록을 세웠다.</div>
+                        </div>
+                    </li>
+                    <li class="gall-card">
+                        <img src="../static/img/yang.jpg" alt="Yang Hyeon Jong" class="gall-img">
+                        <div class="news-card-title">
+                            <div class="news-title">양현종, MLB 개막전 출전 보인다</a>
+                            <div class="news-detail">메이저리그(MLB)에 도전하는 양현종(33·텍사스 레인저스)이 서서히 존재감을 높여가고 있다. 비록 MLB 시범경기 첫 등판에서 홈런을 맞았지만, MLB닷컴은 그의 개막 로스터 진입을 예상했다. 크리스 우드워드(45) 텍사스 감독도 양현종의 실력과 태도에 모두 합격점을 줬다.</div>
+                        </div>
+                    </li>
+                    <li class="gall-card">
+                        <img src="../static/img/kim.jpg" alt="Kim Ha Sung" class="gall-img">
+                        <div class="news-card-title">
+                            <div class="news-title">김하성, MLB 시범경기 첫 안타 신고</a>
+                            <div class="news-detail">메이저리그에 진출한 김하성(26·샌디에이고 파드리스)이 시범경기 첫 안타를 신고했다.
+
+                                김하성은 2일(한국시간) 미국 애리조나주 피오리아 스포츠콤플렉스에서 열린 시카고 컵스와의 시범경기에 3번 유격수로 선발 출전, 2타수 1안타를 기록했다.</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIT -->
+    <section>
+        <div class="inner">
+            <div class="gall-container">
+                <div class="gall-title-container">
+                    <div class="gall-title">최고 조회수</div>
+                </div>
+                {% if hit_data %}
+                <ul class="gall-list" data-position="0">
+                    {% for document in hit_data %}
+                    <li class="hit-card">
+                        <div class="hit-card-title">
+                            <a class="card-title" href="http://localhost:8081/gallery/{{document.gall}}/{{document.gallid}}">{{ document.title }}</a>
+                            <div class="hit-detail">{{document.content}}</div>
+                            <div class="hit-hit">{{document.hit}} 조회수</div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="inner">
+            <div class="footer-message">안녕하세요</div>
+            <div class="footer-contact">컨택: plm3332@gmail.com</div>
+            <div class="footer-copyright">Copyright 2021 © All rights reserved.</div>
+        </div>
+    </footer>
+    <a id="backtotop"></a>
+    <script src="../static/js/main.js"></script>
+</body>
+</html>
